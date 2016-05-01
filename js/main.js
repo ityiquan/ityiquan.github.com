@@ -19,7 +19,7 @@ oLoad.style.display='none';
 	for(var i=0;i<len;i++){
 		aLi[i].index=i;
 		aLi[i].onclick=function(){
-			for(var i=0;i<aLi.length;i++){
+			for(var i=0;i<len;i++){
 				aLi[i].className='';
 				aList[i].style.opacity=0;
 			}
@@ -31,15 +31,12 @@ oLoad.style.display='none';
 			oContentWrap.style.OTransform='rotateX('+deg+'deg)';
 			oContentWrap.style.transform='rotateX('+deg+'deg)';
 
-
 			iNow=this.index;
 			aLi[iNow==0?len-1:iNow-1].className='t1';
 			aLi[iNow].className='cur';
 			aLi[iNow==len-1?0:iNow+1].className='b1';
 
-			//aList[iNow==0?len-1:iNow-1].style.opacity=0;
 			aList[iNow].style.opacity=1;
-			//aList[iNow==len-1?0:iNow+1].style.opacity=0;
 		};
 	}
 })();
@@ -47,8 +44,9 @@ oLoad.style.display='none';
 //home
 (function(){
 	var oMsg=document.getElementById('message');
+	var timer_bomb = null;
 	var aSpan=oMsg.children;
-	var arr=['姓名:王义全','电子科技大学(211、985) 信息显示专业 本科','大学英语6级，托业国际交流英语考试(TOEIC)715分 (华为、联想、IBM、Microsoft等五百强英语要求托业650分~730分),一年外企工作经验','E-Mail:ityiquan@sina.com','Q Q:977729594','Tel:18513610112',' GitHub:ityiquan.github.com'];
+	var arr=['姓名:王义全','电子科技大学(211、985)','信息显示专业  本科','大学英语6级，托业国际交流英语考试(TOEIC)715分','E-Mail:ityiquan@sina.com','Tel:18513610112',' GitHub:ityiquan.github.com'];
 	var iNow=0;
 	function play(n){
 		var i=0;
@@ -64,6 +62,65 @@ oLoad.style.display='none';
 		},100);
 	}
 	play(iNow);
+	//home_pic
+	function rnd(n,m){
+		return Math.floor(n+Math.random()*(m-n));
+	}
+	function picBomb()
+	{	
+		clearInterval(timer_bomb);
+		var oPic = document.querySelector('ul.home li .home_pic');
+		var R = 5;
+		var C = 5;
+		var iNow = 0;
+		for(var i=0;i<R;i++)
+		{
+			for(var j=0;j<C;j++)
+			{
+				var oS = document.createElement('span');
+				oS.style.width = Math.round(oPic.offsetWidth/C)+'px';
+				oS.style.height = Math.round(oPic.offsetHeight/R)+'px';
+				oPic.appendChild(oS);
+				oS.style.left = j*oS.offsetWidth+'px';
+				oS.style.top = i*oS.offsetHeight+'px';
+				oS.style.backgroundPosition = '-'+j*oS.offsetWidth+'px -'+i*oS.offsetHeight+'px';
+			}
+		}
+		var aSpan = oPic.children;
+		function picChange()
+		{
+			iNow++;
+			for(var i=0;i<aSpan.length;i++)
+			{
+				aSpan[i].style.WebkitTransition = '2s all ease';
+				var x = (aSpan[i].offsetLeft+aSpan[i].offsetWidth/2)-oPic.offsetWidth/2;
+				var y = (aSpan[i].offsetTop+aSpan[i].offsetHeight/2)-oPic.offsetHeight/2;
+				
+				aSpan[i].style.WebkitTransform = 'translate('+x+'px,'+y+'px) rotateY('+rnd(-360,360)+'deg) rotateX('+rnd(-360,360)+'deg)';
+				aSpan[i].style.opacity = 0;
+			}
+			function fnEnd()
+			{
+				aSpan[aSpan.length-1].removeEventListener('transitionend',fnEnd,false)
+				oPic.style.backgroundImage = 'url(img/pic/'+((iNow+1)%6+1)+'.png)';
+				for(var i=0;i<aSpan.length;i++)
+				{
+					aSpan[i].style.WebkitTransition = 'none';
+					aSpan[i].style.backgroundImage='url(img/pic/'+(iNow%6+1)+'.png)';
+					aSpan[i].style.opacity = 1;
+					aSpan[i].style.WebkitTransform = '';
+				}
+			}
+			aSpan[aSpan.length-1].addEventListener('transitionend',fnEnd,false);
+		};			
+		picChange();
+		timer_bomb = setInterval(picChange,4000);
+	}
+	picBomb();
+	
+	
+	
+	
 })();
 
 //web
@@ -119,10 +176,10 @@ oLoad.style.display='none';
 			aLi[i].style.top=aPos2[Math.floor(i/6)].top+'px';
 		}	
 		aLi[i].onmouseenter=function(){
-            move(this.children[0].children[1],{bottom:0,opacity:.8},{duration:300});
+            move(this.children[0].children[1],{bottom:0,opacity:.8},{duration:250});
         };
         aLi[i].onmouseleave=function(){
-            move(this.children[0].children[1],{bottom:-80,opacity:0},{duration:300});
+            move(this.children[0].children[1],{bottom:-80,opacity:0},{duration:250});
         };
 	}
 	for(var i=0;i<aA.length;i++){
@@ -175,11 +232,11 @@ oLoad.style.display='none';
 			aS[i].style.transition = '1s all ease '+(N-i)*300+'ms';
 			 (function(index){
 			 	setTimeout(function(){
-					aS[index].style.WebkitTransform='rotateY(-'+index*360/N+'deg) translateZ(300px)';
-					aS[index].style.MozTransform='rotateY(-'+index*360/N+'deg) translateZ(300px)';
-					aS[index].style.msTransform='rotateY(-'+index*360/N+'deg) translateZ(300px)';
-					aS[index].style.OTransform='rotateY(-'+index*360/N+'deg) translateZ(300px)';
-					aS[index].style.transform='rotateY(-'+index*360/N+'deg) translateZ(300px)';
+					aS[index].style.WebkitTransform='rotateY('+index*360/N+'deg) translateZ(300px)';
+					aS[index].style.MozTransform='rotateY('+index*360/N+'deg) translateZ(300px)';
+					aS[index].style.msTransform='rotateY('+index*360/N+'deg) translateZ(300px)';
+					aS[index].style.OTransform='rotateY('+index*360/N+'deg) translateZ(300px)';
+					aS[index].style.transform='rotateY('+index*360/N+'deg) translateZ(300px)';
 				});
 			 })(i);
 		}
@@ -207,8 +264,6 @@ oLoad.style.display='none';
 			document.onmouseup=function(){
 				document.onmousemove=null;
 				document.onmouseup=null;
-				//iSpeedX 		y
-				//iSpeedY 		x
 				timer = setInterval(function(){
 					speedX*=0.95;
 					speedY*=0.95;

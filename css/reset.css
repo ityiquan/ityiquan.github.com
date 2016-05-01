@@ -11,3 +11,8 @@ a {
   text-decoration: none;
   color: white;
 }
+body {
+  height:100%;
+  background: url(../img/page-bg.jpg) no-repeat top center;
+  background-size: cover;
+}
