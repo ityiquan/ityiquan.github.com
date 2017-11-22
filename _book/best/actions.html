@@ -4,7 +4,7 @@
     <head>
         <meta charset="UTF-8">
         <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
-        <title>概念 & 原则 · 前端知识点总结</title>
+        <title>创建（异步）actions · 前端知识点总结</title>
         <meta http-equiv="X-UA-Compatible" content="IE=edge" />
         <meta name="description" content="">
         <meta name="generator" content="GitBook 3.2.3">
@@ -65,10 +65,10 @@
     <link rel="shortcut icon" href="../gitbook/images/favicon.ico" type="image/x-icon">
 
     
-    <link rel="next" href="../refguide/api.html" />
+    <link rel="next" href="react-performance.html" />
     
     
-    <link rel="prev" href="overview.html" />
+    <link rel="prev" href="store.html" />
     
 
     </head>
@@ -137,9 +137,9 @@
             <ul class="articles">
                 
     
-        <li class="chapter " data-level="1.3.1" data-path="overview.html">
+        <li class="chapter " data-level="1.3.1" data-path="../intro/overview.html">
             
-                <a href="overview.html">
+                <a href="../intro/overview.html">
             
                     
                     MobX 要点
@@ -150,9 +150,9 @@
             
         </li>
     
-        <li class="chapter active" data-level="1.3.2" data-path="concepts.html">
+        <li class="chapter " data-level="1.3.2" data-path="../intro/concepts.html">
             
-                <a href="concepts.html">
+                <a href="../intro/concepts.html">
             
                     
                     概念 & 原则
@@ -336,9 +336,9 @@
             
         </li>
     
-        <li class="chapter " data-level="1.6" data-path="../best/react.html">
+        <li class="chapter " data-level="1.6" data-path="react.html">
             
-                <a href="../best/react.html">
+                <a href="react.html">
             
                     
                     理解MobX是如何响应的
@@ -349,9 +349,9 @@
             
         </li>
     
-        <li class="chapter " data-level="1.7" data-path="../best/decorators.html">
+        <li class="chapter " data-level="1.7" data-path="decorators.html">
             
-                <a href="../best/decorators.html">
+                <a href="decorators.html">
             
                     
                     如何（不）使用装饰符
@@ -460,9 +460,9 @@
             <ul class="articles">
                 
     
-        <li class="chapter " data-level="1.9.1" data-path="../best/pitfalls.html">
+        <li class="chapter " data-level="1.9.1" data-path="pitfalls.html">
             
-                <a href="../best/pitfalls.html">
+                <a href="pitfalls.html">
             
                     
                     常见问题 & 最佳事件
@@ -473,9 +473,9 @@
             
         </li>
     
-        <li class="chapter " data-level="1.9.2" data-path="../best/store.html">
+        <li class="chapter " data-level="1.9.2" data-path="store.html">
             
-                <a href="../best/store.html">
+                <a href="store.html">
             
                     
                     定义 stores
@@ -486,9 +486,9 @@
             
         </li>
     
-        <li class="chapter " data-level="1.9.3" data-path="../best/actions.html">
+        <li class="chapter active" data-level="1.9.3" data-path="actions.html">
             
-                <a href="../best/actions.html">
+                <a href="actions.html">
             
                     
                     创建（异步）actions
@@ -499,9 +499,9 @@
             
         </li>
     
-        <li class="chapter " data-level="1.9.4" data-path="../best/react-performance.html">
+        <li class="chapter " data-level="1.9.4" data-path="react-performance.html">
             
-                <a href="../best/react-performance.html">
+                <a href="react-performance.html">
             
                     
                     优化 React 组件
@@ -512,9 +512,9 @@
             
         </li>
     
-        <li class="chapter " data-level="1.9.5" data-path="../best/devtools.html">
+        <li class="chapter " data-level="1.9.5" data-path="devtools.html">
             
-                <a href="../best/devtools.html">
+                <a href="devtools.html">
             
                     
                     开发者工具
@@ -525,9 +525,9 @@
             
         </li>
     
-        <li class="chapter " data-level="1.9.6" data-path="../best/syntax.html">
+        <li class="chapter " data-level="1.9.6" data-path="syntax.html">
             
-                <a href="../best/syntax.html">
+                <a href="syntax.html">
             
                     
                     ES5 \/ ES6 \/ TypeScript 语法
@@ -538,9 +538,9 @@
             
         </li>
     
-        <li class="chapter " data-level="1.9.7" data-path="../best/stateless-HMR.html">
+        <li class="chapter " data-level="1.9.7" data-path="stateless-HMR.html">
             
-                <a href="../best/stateless-HMR.html">
+                <a href="stateless-HMR.html">
             
                     
                     无状态组件和热加载
@@ -787,7 +787,7 @@
     <!-- Title -->
     <h1>
         <i class="fa fa-circle-o-notch fa-spin"></i>
-        <a href=".." >概念 & 原则</a>
+        <a href=".." >创建（异步）actions</a>
     </h1>
 </div>
 
@@ -802,69 +802,44 @@
     
                                 <section class="normal markdown-section">
                                 
-                                <h1 id="&#x6982;&#x5FF5;--&#x539F;&#x5219;">&#x6982;&#x5FF5; &amp; &#x539F;&#x5219;</h1>
-<h2 id="&#x6982;&#x5FF5;">&#x6982;&#x5FF5;</h2>
-<p>&#x5728;&#x4F60;&#x7684;MobX&#x5E94;&#x7528;&#x4E2D;&#x533A;&#x5206;&#x4E0B;&#x5217;&#x6982;&#x5FF5;&#xFF0C;&#x4E4B;&#x524D;&#x4F60;&#x770B;&#x5230;&#x4E86;&#x5F88;&#x591A;&#x8981;&#x70B9;&#xFF0C;&#x73B0;&#x5728;&#x8BA9;&#x6211;&#x4EEC;&#x6DF1;&#x5165;&#x7684;&#x4E86;&#x89E3;&#x4E0B;&#x5B83;&#x4EEC;</p>
-<h3 id="1-state">1. State</h3>
-<p><em>State</em> &#x662F;&#x9A71;&#x52A8;&#x4F60;&#x7684;&#x5E94;&#x7528;&#x7A0B;&#x5E8F;&#x4E2D;&#x7684;&#x6570;&#x636E;&#xFF0C;&#x901A;&#x5E38;&#x4ED6;&#x4EEC;&#x6709;&#x4E00;&#x4E9B; <em>&#x7279;&#x5B9A;&#x7684;&#x4E3B;&#x72B6;&#x6001;</em> &#xFF0C;&#x6BD4;&#x5982;&#x4E00;&#x4E2A;todo&#x5217;&#x8868;&#xFF0C;&#x5E76;&#x4E14;&#x8FD8;&#x6709;&#x4E00;&#x4E9B;&#x5F53;&#x524D;&#x9009;&#x4E2D;&#x884C;&#x7684; <em>&#x89C6;&#x56FE;&#x72B6;&#x6001;</em> &#xFF0C;&#x8BF7;&#x8BB0;&#x4F4F;state&#x5C31;&#x50CF;&#x662F;&#x7535;&#x5B50;&#x8868;&#x683C;&#x4E2D;&#x7684;&#x5355;&#x5143;&#x683C;&#x3002;</p>
-<h3 id="2-derivations">2. Derivations</h3>
-<p><em>&#x4EFB;&#x4F55;</em> &#x6765;&#x81EA;state&#x7684;&#x4E1C;&#x897F;&#x90FD;&#x662F;&#x53EF;&#x4EE5;&#x6D3E;&#x751F;&#x7684; (Anything that can be derived from the state without any further interaction is a derivation)</p>
-<p>&#x6D3E;&#x751F;&#x6709;&#x5F88;&#x591A;&#x79CD;&#x8868;&#x73B0;&#x5F62;&#x5F0F;</p>
-<ul>
-<li><em>&#x7528;&#x6237;&#x754C;&#x9762;</em></li>
-<li><em>&#x884D;&#x751F;&#x6570;&#x636E;</em>&#xFF0C;&#x6BD4;&#x5982;todos&#x4E2D;&#x79BB;&#x5F00;&#x72B6;&#x6001;</li>
-<li><em>&#x540E;&#x7AEF;&#x901A;&#x4FE1;</em>&#xFF0C;&#x6BD4;&#x5982;&#x5C06;&#x6539;&#x53D8;&#x53D1;&#x7ED9;&#x670D;&#x52A1;&#x5668;</li>
-</ul>
-<p>&#x533A;&#x5206;MobX&#x4E24;&#x79CD;&#x4E0D;&#x540C;&#x7684;&#x6D3E;&#x751F;&#xFF1A;</p>
-<ul>
-<li><em>Computed values</em>&#xFF0C;&#x8FD9;&#x4E9B;&#x662F;&#x53EF;&#x4EE5;&#x4F7F;&#x7528;&#x7EAF;&#x51FD;&#x6570;&#x4ECE;&#x5F53;&#x524D;&#x4F7F;&#x7528;&#x7684;&#x53EF;&#x89C2;&#x5BDF;&#x72B6;&#x6001;&#x6D3E;&#x751F;&#x51FA;&#x7684;&#x503C;</li>
-<li><em>Reactions</em>&#xFF0C;&#x5B83;&#x662F;&#x72B6;&#x6001;&#x53D8;&#x5316;&#x65F6;&#x81EA;&#x52A8;&#x89E6;&#x53D1;&#x7684;&#x526F;&#x4F5C;&#x7528;&#xFF0C;&#x662F;&#x6267;&#x884C;&#x547D;&#x4EE4;&#x548C;&#x54CD;&#x5E94;&#x5F0F;&#x7F16;&#x7A0B;&#x4E2D;&#x7684;&#x6865;&#x6881;&#xFF0C;&#x6211;&#x4EEC;&#x8981;&#x660E;&#x767D;&#xFF0C;&#x5B83;&#x4EEC;&#x6700;&#x7EC8;&#x60F3;&#x8FBE;&#x5230;&#x7684;&#x5C31;&#x662F; I/O&#x3002;</li>
-</ul>
-<p>&#x5927;&#x5BB6;&#x521A;&#x5F00;&#x59CB;&#x8BD5;&#x7528;MobX&#x65F6;&#x4F1A;&#x9891;&#x7E41;&#x7684;&#x4F7F;&#x7528;reaction&#xFF0C;&#x8FD9;&#x91CC;&#x6709;&#x6761;&#x9EC4;&#x91D1;&#x6CD5;&#x5219;&#xFF1A;&#x5982;&#x679C;&#x4F60;&#x60F3;&#x6839;&#x636E;&#x73B0;&#x6709;&#x72B6;&#x6001;&#x521B;&#x5EFA;&#x4E00;&#x4E2A;&#x6570;&#x636E;&#xFF0C;&#x8BF7;&#x4F7F;&#x7528;<code>computed</code></p>
-<p>&#x56DE;&#x5230;&#x548C;&#x7535;&#x5B50;&#x8868;&#x683C;&#x7684;&#x5BF9;&#x6BD4;&#xFF0C;<code>computed</code>&#x5C31;&#x50CF;&#x4F7F;&#x7528;&#x516C;&#x5F0F;&#x4F1A;&#x63A8;&#x5BFC;&#x51FA;&#x4E00;&#x4E2A;&#x503C;&#xFF0C;&#x4F46;&#x662F;&#x8FD8;&#x9700;&#x8981;&#x4E00;&#x4E2A;<code>reaction</code>&#x91CD;&#x7ED8;GUI&#xFF0C;&#x8FD9;&#x6837;&#x7528;&#x6237;&#x5C31;&#x53EF;&#x4EE5;&#x5728;&#x5C4F;&#x5E55;&#x4E0A;&#x770B;&#x5230;&#x4E86;&#x3002;</p>
-<h3 id="3-actions">3. Actions</h3>
-<p>&#x4E00;&#x4E2A;<em>Action</em>&#x5C31;&#x662F;&#x4E00;&#x6BB5;&#x6539;&#x53D8;<em>State</em>&#x7684;&#x4EE3;&#x7801;&#xFF0C;&#x6BD4;&#x5982;&#x7528;&#x6237;&#x4E8B;&#x4EF6;&#xFF0C;&#x540E;&#x7AEF;&#x6570;&#x636E;&#x4FDD;&#x5B58;&#xFF0C;&#x56DE;&#x8C03;&#x4E8B;&#x4EF6;&#x7B49;&#x3002;<em>Action</em>&#x5C31;&#x50CF;&#x7528;&#x6237;&#x5728;&#x7535;&#x5B50;&#x8868;&#x683C;&#x7684;&#x5355;&#x5143;&#x683C;&#x4E2D;&#x65B0;&#x8F93;&#x5165;&#x4E00;&#x4E2A;&#x503C;&#x3002;</p>
-<p>&#x5728;MobX&#x4E2D;&#x4F60;&#x53EF;&#x4EE5;&#x660E;&#x786E;&#x7684;&#x5B9A;&#x4E49;Actions&#xFF0C;&#x4ECE;&#x800C;&#x4F7F;&#x4F60;&#x66F4;&#x6E05;&#x6670;&#x7684;&#x7EC4;&#x7EC7;&#x4EE3;&#x7801;&#x7ED3;&#x6784;&#x3002;&#x5982;&#x679C;&#x5728;&#x4E25;&#x683C;&#x6A21;&#x5F0F;&#x4E0B;&#x4F7F;&#x7528;MobX&#xFF0C;MobX&#x4F1A;&#x5F3A;&#x5236;&#x6267;&#x884C;&#x53EA;&#x6709;action&#x624D;&#x53EF;&#x4EE5;&#x4FEE;&#x6539;state&#x3002;</p>
-<h2 id="principles">Principles</h2>
-<p>MobX&#x63D0;&#x4F9B;&#x4E86;&#x4E00;&#x5957;&#x5F53; <em>actoins</em> &#x6539;&#x53D8; <em>state</em> &#x65F6;&#xFF0C;&#x7136;&#x540E; <em>state</em> &#x518D;&#x53CD;&#x5411;&#x4F5C;&#x7528;&#x4E8E; <em>views</em>  &#x7684;&#x5355;&#x5411;&#x6570;&#x636E;&#x6D41;&#x3002;</p>
-<p><img src="../images/action-state-view.png" alt="Action, State, View"></p>
-<p>&#x5F53;&#x72B6;&#x6001;&#x6539;&#x53D8;&#x65F6;&#xFF0C;&#x6240;&#x6709;&#x6D3E;&#x751F;<strong>&#x5355;&#x5143;</strong>&#x90FD;&#x4F1A;<strong>&#x81EA;&#x52A8;</strong>&#x7684;&#x66F4;&#x65B0;&#xFF0C;&#x8FD9;&#x6837;&#x7684;&#x7ED3;&#x679C;&#x5C31;&#x662F;&#x4F60;&#x6C38;&#x8FDC;&#x4E0D;&#x53EF;&#x80FD;&#x89C2;&#x5BDF;&#x5230;&#x4E2D;&#x95F4;&#x503C;&#x3002;</p>
-<p>&#x9ED8;&#x8BA4;&#x60C5;&#x51B5;&#x4E0B;&#xFF0C;&#x6240;&#x6709;&#x7684;&#x6D3E;&#x751F;&#x90FD;&#x662F;<strong>&#x5F02;&#x6B65;</strong>&#x66F4;&#x65B0;&#x7684;&#xFF0C;&#x8FD9;&#x6709;&#x5C31;&#x610F;&#x5473;&#x7740;&#xFF0C;&#x4F8B;&#x5982;action&#x53EF;&#x4EE5;&#x5728;&#x72B6;&#x6001;&#x6539;&#x53D8;&#x4E4B;&#x540E;&#x5B89;&#x5168;&#x7684;&#x63A8;&#x5BFC;&#x8BA1;&#x7B97;&#x503C;&#x3002;</p>
-<p>Computed &#x503C;&#x662F;<strong>&#x5EF6;&#x8FDF;</strong>&#x66F4;&#x65B0;&#x7684;&#x3002;&#x4EFB;&#x4F55;&#x6CA1;&#x6709;&#x5728;&#x6267;&#x884C;&#x4E2D;&#x4F7F;&#x7528;&#x5230;&#x7684;computed&#x503C;&#x662F;&#x4E0D;&#x4F1A;&#x81EA;&#x52A8;&#x66F4;&#x65B0;&#x7684;&#xFF0C;&#x9664;&#x975E;&#x5B83;&#x662F;&#x4E00;&#x4E2A;&#x526F;&#x4F5C;&#x7528;&#x9700;&#x8981;&#x7684;(I/O)&#x3002;&#x5982;&#x679C;&#x89C6;&#x56FE;&#x4E0D;&#x5728;&#x4F7F;&#x7528;&#x5B83;&#xFF0C;&#x5B83;&#x5C06;&#x4F1A;&#x88AB;&#x8FDB;&#x884C;&#x5783;&#x573E;&#x56DE;&#x6536;&#x3002;</p>
-<p>&#x6240;&#x6709;&#x7684;computed&#x503C;&#x90FD;&#x5E94;&#x8BE5;&#x662F;&#x7EAF;&#x51C0;&#x7684;&#xFF0C;&#x5B83;&#x4EEC;&#x4E0D;&#x5E94;&#x8BE5;&#x88AB;&#x6539;&#x53D8;&#x72B6;&#x6001;&#x3002;</p>
-<h2 id="illustration">Illustration</h2>
-<p>&#x4EE5;&#x4E0B;&#x6F14;&#x793A;&#x4E86;&#x4E0A;&#x8FF0;&#x7684;&#x4ECB;&#x7ECD;&#x7684;&#x6982;&#x5FF5;&#x548C;&#x539F;&#x5219;</p>
-<pre class="language-"><code class="lang-javascript"><span class="token keyword">import</span> <span class="token punctuation">{</span>observable<span class="token punctuation">,</span> autorun<span class="token punctuation">}</span> <span class="token keyword">from</span> <span class="token string">&apos;mobx&apos;</span><span class="token punctuation">;</span>
+                                <h1 id="writing-actions">Writing Actions</h1>
+<p>Writing actions is straight-forward when using MobX.
+Just create, change or delete data and MobX will make sure that changes are picked up by the store and the components that depend on your data.
+Based on the store we have created in the previous section, actions become as simple as:</p>
+<pre class="language-"><code class="lang-javascript"><span class="token keyword">var</span> todo <span class="token operator">=</span> todoStore<span class="token punctuation">.</span><span class="token function">createTodo</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+todo<span class="token punctuation">.</span>task <span class="token operator">=</span> <span class="token string">&quot;make coffee&quot;</span><span class="token punctuation">;</span>
+</code></pre>
+<p>That is enough to create a todo, submit it to the server and update our user interface accordingly.</p>
+<h2 id="asynchronous-actions">Asynchronous actions</h2>
+<p>Writing asynchronous actions is pretty simple as well.
+You can use observable data structures as a promise.
+This is what happens with the <code>isLoading</code> property in the <code>todoStore</code> for example:</p>
+<pre class="language-"><code class="lang-javascript"><span class="token comment" spellcheck="true">// ...</span>
+    <span class="token keyword">this</span><span class="token punctuation">.</span>isLoading <span class="token operator">=</span> <span class="token boolean">true</span><span class="token punctuation">;</span>
+    <span class="token keyword">this</span><span class="token punctuation">.</span>transportLayer<span class="token punctuation">.</span><span class="token function">fetchTodos</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">then</span><span class="token punctuation">(</span>fetchedTodos <span class="token operator">=</span><span class="token operator">&gt;</span> <span class="token punctuation">{</span>
+        fetchedTodos<span class="token punctuation">.</span><span class="token function">forEach</span><span class="token punctuation">(</span>json <span class="token operator">=</span><span class="token operator">&gt;</span> <span class="token keyword">this</span><span class="token punctuation">.</span><span class="token function">updateTodoFromServer</span><span class="token punctuation">(</span>json<span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token keyword">this</span><span class="token punctuation">.</span>isLoading <span class="token operator">=</span> <span class="token boolean">false</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token comment" spellcheck="true">// ...</span>
+</code></pre>
+<p>After completing the asynchronous action, just update your data and your views will update.
+The render function of a React component could become as simple as:</p>
+<pre class="language-"><code class="lang-javascript"><span class="token keyword">import</span> <span class="token punctuation">{</span>observer<span class="token punctuation">}</span> <span class="token keyword">from</span> <span class="token string">&quot;mobx-react&quot;</span><span class="token punctuation">;</span>
 
-<span class="token keyword">var</span> todoStore <span class="token operator">=</span> <span class="token function">observable</span><span class="token punctuation">(</span><span class="token punctuation">{</span>
-    <span class="token comment" spellcheck="true">/* some observable state */</span>
-    todos<span class="token punctuation">:</span> <span class="token punctuation">[</span><span class="token punctuation">]</span><span class="token punctuation">,</span>
-
-    <span class="token comment" spellcheck="true">/* a derived value */</span>
-    <span class="token keyword">get</span> <span class="token function">completedCount</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
-        <span class="token keyword">return</span> <span class="token keyword">this</span><span class="token punctuation">.</span>todos<span class="token punctuation">.</span><span class="token function">filter</span><span class="token punctuation">(</span>todo <span class="token operator">=</span><span class="token operator">&gt;</span> todo<span class="token punctuation">.</span>completed<span class="token punctuation">)</span><span class="token punctuation">.</span>length<span class="token punctuation">;</span>
+<span class="token keyword">var</span> TodoOverview <span class="token operator">=</span> <span class="token function">observer</span><span class="token punctuation">(</span><span class="token keyword">function</span><span class="token punctuation">(</span>props<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    <span class="token keyword">var</span> todoStore <span class="token operator">=</span> props<span class="token punctuation">.</span>todoStore<span class="token punctuation">;</span>
+    <span class="token keyword">if</span> <span class="token punctuation">(</span>todoStore<span class="token punctuation">.</span>isLoading<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+        <span class="token keyword">return</span> <span class="token operator">&lt;</span>div<span class="token operator">&gt;</span>Loading<span class="token operator">...</span><span class="token operator">&lt;</span><span class="token operator">/</span>div<span class="token operator">&gt;</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span> <span class="token keyword">else</span> <span class="token punctuation">{</span>
+        <span class="token keyword">return</span> <span class="token operator">&lt;</span>div<span class="token operator">&gt;</span><span class="token punctuation">{</span>
+            todoStore<span class="token punctuation">.</span>todos<span class="token punctuation">.</span><span class="token function">map</span><span class="token punctuation">(</span>todo <span class="token operator">=</span><span class="token operator">&gt;</span> <span class="token operator">&lt;</span>TodoItem key<span class="token operator">=</span><span class="token punctuation">{</span>todo<span class="token punctuation">.</span>id<span class="token punctuation">}</span> todo<span class="token operator">=</span><span class="token punctuation">{</span>todo<span class="token punctuation">}</span> <span class="token operator">/</span><span class="token operator">&gt;</span><span class="token punctuation">)</span>
+        <span class="token punctuation">}</span><span class="token operator">&lt;</span><span class="token operator">/</span>div<span class="token operator">&gt;</span>
     <span class="token punctuation">}</span>
 <span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-
-<span class="token comment" spellcheck="true">/* a function that observes the state */</span>
-<span class="token function">autorun</span><span class="token punctuation">(</span><span class="token keyword">function</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
-    console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span><span class="token string">&quot;Completed %d of %d items&quot;</span><span class="token punctuation">,</span>
-        todoStore<span class="token punctuation">.</span>completedCount<span class="token punctuation">,</span>
-        todoStore<span class="token punctuation">.</span>todos<span class="token punctuation">.</span>length
-    <span class="token punctuation">)</span><span class="token punctuation">;</span>
-<span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-
-<span class="token comment" spellcheck="true">/* ..and some actions that modify the state */</span>
-todoStore<span class="token punctuation">.</span>todos<span class="token punctuation">[</span><span class="token number">0</span><span class="token punctuation">]</span> <span class="token operator">=</span> <span class="token punctuation">{</span>
-    title<span class="token punctuation">:</span> <span class="token string">&quot;Take a walk&quot;</span><span class="token punctuation">,</span>
-    completed<span class="token punctuation">:</span> <span class="token boolean">false</span>
-<span class="token punctuation">}</span><span class="token punctuation">;</span>
-<span class="token comment" spellcheck="true">// -&gt; synchronously prints &apos;Completed 0 of 1 items&apos;</span>
-
-todoStore<span class="token punctuation">.</span>todos<span class="token punctuation">[</span><span class="token number">0</span><span class="token punctuation">]</span><span class="token punctuation">.</span>completed <span class="token operator">=</span> <span class="token boolean">true</span><span class="token punctuation">;</span>
-<span class="token comment" spellcheck="true">// -&gt; synchronously prints &apos;Completed 1 of 1 items&apos;</span>
 </code></pre>
-<p><a href="https://mobxjs.github.io/mobx/getting-started.html" target="_blank">&#x5341;&#x5206;&#x949F;&#x5165;&#x95E8; MobX + React</a> you can dive deeper into this example and build a user interface using <a href="https://facebook.github.io/react/" target="_blank">React</a></p>
+<p>The above <code>TodoOverview</code> component will now update whenever <code>isLoading</code> changes, or when <code>isLoading</code> is true and the <code>todos</code> list changes.
+Note that we could have expressed <code>todoStore.isLoading</code> as <code>todoStore.todos.length</code> as well.
+The result would be exactly the same.</p>
 
                                 
                                 </section>
@@ -892,12 +867,12 @@ todoStore<span class="token punctuation">.</span>todos<span class="token punctua
 
             
                 
-                <a href="overview.html" class="navigation navigation-prev " aria-label="Previous page: MobX 要点">
+                <a href="store.html" class="navigation navigation-prev " aria-label="Previous page: 定义 stores">
                     <i class="fa fa-angle-left"></i>
                 </a>
                 
                 
-                <a href="../refguide/api.html" class="navigation navigation-next " aria-label="Next page: API 概述">
+                <a href="react-performance.html" class="navigation navigation-next " aria-label="Next page: 优化 React 组件">
                     <i class="fa fa-angle-right"></i>
                 </a>
                 
@@ -908,7 +883,7 @@ todoStore<span class="token punctuation">.</span>todos<span class="token punctua
     <script>
         var gitbook = gitbook || [];
         gitbook.push(function() {
-            gitbook.page.hasChanged({"page":{"title":"概念 & 原则","level":"1.3.2","depth":2,"next":{"title":"API 概述","level":"1.4","depth":1,"path":"refguide/api.md","ref":"refguide/api.md","articles":[{"title":"observable","level":"1.4.1","depth":2,"path":"refguide/observable.md","ref":"refguide/observable.md","articles":[]},{"title":"@observable","level":"1.4.2","depth":2,"path":"refguide/observable-decorator.md","ref":"refguide/observable-decorator.md","articles":[]},{"title":"(@)computed","level":"1.4.3","depth":2,"path":"refguide/computed-decorator.md","ref":"refguide/computed-decorator.md","articles":[]},{"title":"autorun","level":"1.4.4","depth":2,"path":"refguide/autorun.md","ref":"refguide/autorun.md","articles":[]},{"title":"(@)observer","level":"1.4.5","depth":2,"path":"refguide/observer-component.md","ref":"refguide/observer-component.md","articles":[]},{"title":"action","level":"1.4.6","depth":2,"path":"refguide/action.md","ref":"refguide/action.md","articles":[]}]},"previous":{"title":"MobX 要点","level":"1.3.1","depth":2,"path":"intro/overview.md","ref":"intro/overview.md","articles":[]},"dir":"ltr"},"config":{"plugins":["disqus","github","editlink","prism","-highlight","baidu","splitter","sitemap"],"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"pluginsConfig":{"prism":{},"disqus":{"useIdentifier":false,"shortName":"webpack-handbook"},"github":{"url":"https://github.com/ityiquan/ityiquan.github.com"},"editlink":{"label":"编辑本页","multilingual":false,"base":"https://github.com/ityiquan/ityiquan.github.com"},"splitter":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"fontsettings":{"theme":"white","family":"sans","size":2},"sitemap":{"hostname":"http://zhaoda.net/"},"baidu":{"token":"a9787f0ab45d5e237bab522431d0a7ec"},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"theme":"default","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{},"title":"前端知识点总结","language":"zh","gitbook":"*","description":"前端知识点总结"},"file":{"path":"intro/concepts.md","mtime":"2017-11-22T07:48:37.000Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2017-11-22T08:14:43.676Z"},"basePath":"..","book":{"language":""}});
+            gitbook.page.hasChanged({"page":{"title":"创建（异步）actions","level":"1.9.3","depth":2,"next":{"title":"优化 React 组件","level":"1.9.4","depth":2,"path":"best/react-performance.md","ref":"best/react-performance.md","articles":[]},"previous":{"title":"定义 stores","level":"1.9.2","depth":2,"path":"best/store.md","ref":"best/store.md","articles":[]},"dir":"ltr"},"config":{"plugins":["disqus","github","editlink","prism","-highlight","baidu","splitter","sitemap"],"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"pluginsConfig":{"prism":{},"disqus":{"useIdentifier":false,"shortName":"webpack-handbook"},"github":{"url":"https://github.com/ityiquan/ityiquan.github.com"},"editlink":{"label":"编辑本页","multilingual":false,"base":"https://github.com/ityiquan/ityiquan.github.com"},"splitter":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"fontsettings":{"theme":"white","family":"sans","size":2},"sitemap":{"hostname":"http://zhaoda.net/"},"baidu":{"token":"a9787f0ab45d5e237bab522431d0a7ec"},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"theme":"default","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{},"title":"前端知识点总结","language":"zh","gitbook":"*","description":"前端知识点总结"},"file":{"path":"best/actions.md","mtime":"2017-11-22T07:48:37.000Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2017-11-22T08:14:43.676Z"},"basePath":"..","book":{"language":""}});
         });
     </script>
 </div>
