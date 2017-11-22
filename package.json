@@ -1,7 +1,7 @@
 {
-  "name": "前端面试知识总结",
+  "name": "前端知识点总结",
   "version": "0.0.1",
-  "description": "前端面试知识总结",
+  "description": "前端知识点总结",
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
@@ -9,19 +9,20 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/ityiquan/ityiquan.github.com.git"
+    "url": "git+https://github.com/ityiquan/ityiquan.github.com"
   },
   "keywords": [
-    "前端",
-    "面试",
-    "知识"
+    "mobx",
+    "zh",
+    "中文",
+    "文档"
   ],
   "author": "ityiquan@sina.com",
   "license": "MIT",
   "bugs": {
     "url": "https://github.com/ityiquan/ityiquan.github.com/issues"
   },
-  "homepage": "https://github.com/ityiquan/ityiquan.github.com",
+  "homepage": "https://github.com/ityiquan/ityiquan.github.com/issues#readme",
   "dependencies": {
     "gulp": "^3.9.1",
     "gulp-gh-pages": "^0.5.4"

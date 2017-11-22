@@ -1,5 +1,6 @@
 # Summary
 
+* [Introduction](README.md)
 * [MobX](MobX.md)
 * 介绍
     * [MobX 要点](intro/overview.md)
@@ -7,9 +8,9 @@
 * [API 概述](refguide/api.md)
     * [observable](refguide/observable.md)
     * [@observable](refguide/observable-decorator.md)
-    * [\(@\)computed](refguide/computed-decorator.md)
+    * [(@)computed](refguide/computed-decorator.md)
     * [autorun](refguide/autorun.md)
-    * [\(@\)observer](refguide/observer-component.md)
+    * [(@)observer](refguide/observer-component.md)
     * [action](refguide/action.md)
 * Observable 类型
     * [对象](refguide/object.md)
